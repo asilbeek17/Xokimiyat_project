@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -5667,7 +5668,7 @@
                                      data-section="title_tagline">
                                     <div class="site-branding ast-site-identity"
                                          itemtype="https://schema.org/Organization" itemscope="itemscope">
-                                        <span class="site-logo-img"><a href="index.html" class="custom-logo-link"
+                                        <span class="site-logo-img"><a href="{% url 'index' %}" class="custom-logo-link"
                                                                        rel="home"><img width="55" height="62"
                                                                                        src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/04/life-coach-flower-logo-55x62.png"
                                                                                        class="custom-logo"
@@ -5676,7 +5677,7 @@
                                                                                        sizes="(max-width: 55px) 100vw, 55px"/></a></span>
                                         <div class="ast-site-title-wrap">
 <span class="site-title" itemprop="name">
-<a href="index.html" rel="home" itemprop="url">
+<a href="{% url 'index' %}" rel="home" itemprop="url">
 Life Coach
 </a>
 </span>
@@ -5702,17 +5703,17 @@ Life Coach
                                                         class="main-header-menu ast-menu-shadow ast-nav-menu ast-flex  submenu-with-border astra-menu-animation-fade  stack-on-mobile">
                                                         <li id="menu-item-633"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-633">
-                                                            <a href="about.html" class="menu-link">About</a></li>
+                                                            <a href="{% url 'about' %}" class="menu-link">About</a></li>
                                                         <li id="menu-item-634"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-634">
-                                                            <a href="work_with_me.html" class="menu-link">Work With
+                                                            <a href="{% url 'work_with_me' %}" class="menu-link">Work With
                                                                 Me</a></li>
                                                         <li id="menu-item-617"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">
-                                                            <a href="books.html" class="menu-link">Books</a></li>
+                                                            <a href="{% url 'books' %}" class="menu-link">Books</a></li>
                                                         <li id="menu-item-418"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-9 current_page_item menu-item-418">
-                                                            <a href="contact.html" aria-current="page"
+                                                            <a href="{% url 'contact' %}" aria-current="page"
                                                                class="menu-link">Contact</a></li>
                                                     </ul>
                                                 </div>
