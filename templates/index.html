@@ -6111,7 +6111,9 @@ Sizga qanday yordam bera olishim mumkin?                                        
                                                                                                                 Shahar
                                                                                                             </h3>
                                                                                                         <select class="elementor-image-box-title" style="width:300px; background-color: white; font-family: sans-serif; text-align: center; border-radius: 10px" >
-                                                                                                            <option>Sample Service 1</option>
+                                                                                                            {% for shahar in shaharlar %}
+                                                                                                            <option>{{ shahar.title }}</option>
+                                                                                                            {% endfor %}
                                                                                                             </select>
                                                                                                     </div>
                                                                                                 </div>
@@ -6143,7 +6145,9 @@ Sizga qanday yordam bera olishim mumkin?                                        
                                                                                                                 Tuman
                                                                                                             </h3>
                                                                                                         <select class="elementor-image-box-title" style="width:300px; background-color: white; font-family: sans-serif; text-align: center; border-radius: 10px" >
-                                                                                                            <option>Sample Service 1</option>
+                                                                                                            {% for tuman in tumanlar %}
+                                                                                                            <option>{{ tuman.title }}</option>
+                                                                                                            {% endfor %}
                                                                                                             </select>
                                                                                                     </div>
                                                                                                 </div>
@@ -6175,7 +6179,9 @@ Sizga qanday yordam bera olishim mumkin?                                        
                                                                                                                 Loyihalar
                                                                                                             </h3>
                                                                                                         <select class="elementor-image-box-title" style="width:300px; background-color: white; font-family: sans-serif; text-align: center; border-radius: 10px" >
-                                                                                                            <option>Sample Service 1</option>
+                                                                                                            {% for loyiha in loyihalar %}
+                                                                                                            <option>{{ loyiha.title }}</option>
+                                                                                                            {% endfor %}
                                                                                                             </select>
                                                                                                     </div>
                                                                                                 </div>

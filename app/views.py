@@ -1,8 +1,20 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+
+from app.models import Shaharlar, Tumanlar, Loyihalar
 
 
-def index(request):
-    return render(request, 'index.html')
+class IndexView(ListView):
+    model = Shaharlar
+    shaharlar = Shaharlar.objects.all()
+    tumanlar = Tumanlar.objects.all()
+    loyihalar = Loyihalar.objects.all()
+    template_name = 'index.html'
+    extra_context = {
+        'shaharlar': shaharlar,
+        'tumanlar': tumanlar,
+        'loyihalar': loyihalar,
+    }
 
 
 def about(request):

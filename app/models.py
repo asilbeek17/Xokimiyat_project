@@ -19,46 +19,22 @@ class Tumanlar(models.Model):
         return self.title
 
 
-class Sanoat_loyihalar(models.Model):
+class Loyihalar(models.Model):
+
+    class Loyiha_turi(models.TextChoices):
+        Sanoat_loyihalar = 'Sanoat_loyihalar'
+        Qishloq_xojaligi_loyihalar = 'Qishloq_xojaligi_loyihalar'
+        Xizmat_korsatish_loyihalar = 'Xizmat_korsatish_loyihalar'
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
         Tugallanmagan = 'Tugallanmagan'
 
-    image = models.ImageField('upload_to/sanoat_loyiha/')
+    image = models.ImageField('upload_to/Loyihalar/')
     title = models.CharField(max_length=155)
     description = models.TextField()
     state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
-
-    def __str__(self):
-        return self.title
-
-
-class Qishloq_xojaligi_loyihalar(models.Model):
-
-    class State(models.TextChoices):
-        Tugallangan = 'Tugallangan'
-        Tugallanmagan = 'Tugallanmagan'
-
-    image = models.ImageField('upload_to/qishloq_xojaligi_loyiha/')
-    title = models.CharField(max_length=155)
-    description = models.TextField()
-    state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
-
-    def __str__(self):
-        return self.title
-
-
-class Xizmat_korsatish_loyihalar(models.Model):
-
-    class State(models.TextChoices):
-        Tugallangan = 'Tugallangan'
-        Tugallanmagan = 'Tugallanmagan'
-
-    image = models.ImageField('upload_to/xizmat_korsatish_loyiha/')
-    title = models.CharField(max_length=155)
-    description = models.TextField()
-    state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
+    loyiha_turi = models.CharField(max_length=155, choices=Loyiha_turi.choices, default=Loyiha_turi.Sanoat_loyihalar)
 
     def __str__(self):
         return self.title
