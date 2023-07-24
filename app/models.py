@@ -6,14 +6,20 @@ class City(models.Model):
     title = models.CharField(max_length=155)
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
+
 
 class Region(models.Model):
     image = models.ImageField(upload_to='Region_image/')
     title = models.CharField(max_length=155)
     description = models.TextField()
 
+    def __str__(self):
+        return self.title
 
-class Sanoat_loyiha(models.Model):
+
+class Industrial_project(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
@@ -24,8 +30,11 @@ class Sanoat_loyiha(models.Model):
     description = models.TextField()
     state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
 
+    def __str__(self):
+        return self.title
 
-class Qishloq_xojaligi_loyiha(models.Model):
+
+class Agricultural_project(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
@@ -36,8 +45,11 @@ class Qishloq_xojaligi_loyiha(models.Model):
     description = models.TextField()
     state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
 
+    def __str__(self):
+        return self.title
 
-class Xizmat_korsatish_loyiha(models.Model):
+
+class Service_project(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
@@ -47,3 +59,6 @@ class Xizmat_korsatish_loyiha(models.Model):
     title = models.CharField(max_length=155)
     description = models.TextField()
     state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
+
+    def __str__(self):
+        return self.title

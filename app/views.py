@@ -18,7 +18,7 @@ def contact(request):
 
 
 def work_with_me(request):
-    return render(request, 'work_with_me.html')
+    return render(request, 'loyihalar.html')
 
 
 def single(request):
