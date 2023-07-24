@@ -10,7 +10,7 @@ class City(models.Model):
 class Region(models.Model):
     image = models.ImageField(upload_to='Region_image/')
     title = models.CharField(max_length=155)
-    description = models.TextField
+    description = models.TextField()
 
 
 class Sanoat_loyiha(models.Model):
