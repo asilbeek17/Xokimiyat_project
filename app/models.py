@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class City(models.Model):
+class Shaharlar(models.Model):
     image = models.ImageField(upload_to='City_image/')
     title = models.CharField(max_length=155)
     description = models.TextField()
@@ -10,7 +10,7 @@ class City(models.Model):
         return self.title
 
 
-class Region(models.Model):
+class Tumanlar(models.Model):
     image = models.ImageField(upload_to='Region_image/')
     title = models.CharField(max_length=155)
     description = models.TextField()
@@ -19,7 +19,7 @@ class Region(models.Model):
         return self.title
 
 
-class Industrial_project(models.Model):
+class Sanoat_loyihalar(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
@@ -34,7 +34,7 @@ class Industrial_project(models.Model):
         return self.title
 
 
-class Agricultural_project(models.Model):
+class Qishloq_xojaligi_loyihalar(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
@@ -49,7 +49,7 @@ class Agricultural_project(models.Model):
         return self.title
 
 
-class Service_project(models.Model):
+class Xizmat_korsatish_loyihalar(models.Model):
 
     class State(models.TextChoices):
         Tugallangan = 'Tugallangan'
