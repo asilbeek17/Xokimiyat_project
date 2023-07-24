@@ -21,16 +21,18 @@ def about(request):
     return render(request, 'about.html')
 
 
-def books(request):
-    return render(request, 'books.html')
-
-
 def contact(request):
     return render(request, 'contact.html')
 
 
-def work_with_me(request):
-    return render(request, 'loyihalar.html')
+class LoyihaView(ListView):
+    model = Loyihalar
+    loyihalar = Loyihalar.objects.all()
+    template_name = 'loyihalar.html'
+
+    extra_context = {
+        'loyihalar': loyihalar
+    }
 
 
 def single(request):

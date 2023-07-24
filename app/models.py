@@ -35,6 +35,7 @@ class Loyihalar(models.Model):
     description = models.TextField()
     state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
     loyiha_turi = models.CharField(max_length=155, choices=Loyiha_turi.choices, default=Loyiha_turi.Sanoat_loyihalar)
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

@@ -5738,9 +5738,9 @@ Loyihalar
                                                             class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-622 current_page_item menu-item-634">
                                                             <a href="{% url 'work_with_me' %}" aria-current="page"
                                                                class="menu-link">Loyihalar</a></li>
-                                                        <li id="menu-item-617"
-                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">
-                                                            <a href="{% url 'books' %}" class="menu-link">Kitoblar</a></li>
+{#                                                        <li id="menu-item-617"#}
+{#                                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">#}
+{#                                                            <a href="{% url 'books' %}" class="menu-link">Kitoblar</a></li>#}
                                                         <li id="menu-item-418"
                                                             class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418">
                                                             <a href="{% url 'contact' %}" class="menu-link">Biz bilan bog'lanish</a></li>
@@ -5910,7 +5910,7 @@ Life Coach
                                                                      data-widget_type="heading.default">
                                                                     <div class="elementor-widget-container">
                                                                         <h2 class="elementor-heading-title elementor-size-default">
-                                                                            Packages & Pricing</h2></div>
+                                                                            Bajilgan va bajarilmagan loyihalar</h2></div>
                                                                 </div>
                                                                 <div class="elementor-element elementor-element-6fefece6 elementor-widget elementor-widget-shortcode"
                                                                      data-id="6fefece6" data-element_type="widget"
@@ -5919,133 +5919,133 @@ Life Coach
                                                                         <div class="elementor-shortcode">
                                                                             <div class="woocommerce columns-4 ">
                                                                                 <ul class="products columns-4">
+                                                                                    {% for loyiha in loyihalar %}
                                                                                     <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-401 status-publish first instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">
                                                                                         <div class="astra-shop-thumbnail-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/11-coaching/"
-                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
+                                                                                            <a href=""
+                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                                                                                                <img style="width: 350px; height: 170px"
                                                                                                     width="500"
                                                                                                     height="375"
-                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img-500x375.jpg"
+                                                                                                    src="{{ loyiha.image.url }}"
                                                                                                     class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                                                                                     alt=""
                                                                                                     decoding="async"
                                                                                                     loading="lazy"
-                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product4-free-img.jpg 800w"
+                                                                                                    srcset="{{ loyiha.image.url }} 800w"
                                                                                                     sizes="(max-width: 500px) 100vw, 500px"/></a>
                                                                                         </div>
                                                                                         <div class="astra-shop-summary-wrap">
                                                                                             <a href="https://websitedemos.net/life-coach-sara-john/product/11-coaching/"
                                                                                                class="ast-loop-product__link">
                                                                                                 <h2 class="woocommerce-loop-product__title">
-                                                                                                    1:1 Coaching</h2>
+                                                                                                    {{ loyiha.title }}</h2>
                                                                                             </a>
-                                                                                            <span class="price"><span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>80.00</bdi></span></span>
+{#                                                                                            <span class="price"><span#}
+{#                                                                                                    class="woocommerce-Price-amount amount"><bdi><span#}
+{#                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>80.00</bdi></span></span>#}
                                                                                             <div class="ast-woo-shop-product-description">
-                                                                                                <p>Aut rerum necessi
-                                                                                                    autem aut officiis
-                                                                                                    tatibus saepe.</p>
-                                                                                                <p><strong>Duration : 40
-                                                                                                    MIN</strong></p>
+                                                                                                <p>{{ loyiha.description | slice:80 }}</p>
+                                                                                                <p><strong>{{ loyiha.time | date }}</strong></p>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </li>
-                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-398 status-publish instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                                        <div class="astra-shop-thumbnail-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/couples-guidance/"
-                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
-                                                                                                    width="500"
-                                                                                                    height="375"
-                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-500x375.jpg"
-                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                                                                    alt=""
-                                                                                                    decoding="async"
-                                                                                                    loading="lazy"
-                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img.jpg 800w"
-                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>
-                                                                                        </div>
-                                                                                        <div class="astra-shop-summary-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/couples-guidance/"
-                                                                                               class="ast-loop-product__link">
-                                                                                                <h2 class="woocommerce-loop-product__title">
-                                                                                                    Couple&#8217;s
-                                                                                                    Guidance</h2></a>
-                                                                                            <span class="price"><span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>60.00</bdi></span></span>
-                                                                                            <div class="ast-woo-shop-product-description">
-                                                                                                <p>Officiis debitis aut
-                                                                                                    rerum necessi
-                                                                                                    tatibus saepe.</p>
-                                                                                                <p><strong>Duration : 35
-                                                                                                    MIN</strong></p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-583 status-publish instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                                        <div class="astra-shop-thumbnail-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/discovery-session/"
-                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
-                                                                                                    width="500"
-                                                                                                    height="375"
-                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-500x375.jpg"
-                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                                                                    alt=""
-                                                                                                    decoding="async"
-                                                                                                    loading="lazy"
-                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img.jpg 800w"
-                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>
-                                                                                        </div>
-                                                                                        <div class="astra-shop-summary-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/discovery-session/"
-                                                                                               class="ast-loop-product__link">
-                                                                                                <h2 class="woocommerce-loop-product__title">
-                                                                                                    Discovery
-                                                                                                    Session</h2></a>
-                                                                                            <span class="price"><span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>80.00</bdi></span></span>
-                                                                                            <div class="ast-woo-shop-product-description">
-                                                                                                <p>Lorem ipsum dolor sit
-                                                                                                    amet, elit necessi
-                                                                                                    tatibus saepe.</p>
-                                                                                                <p><strong>Duration : 60
-                                                                                                    MIN</strong></p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-397 status-publish last instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">
-                                                                                        <div class="astra-shop-thumbnail-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/self-improvement/"
-                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img
-                                                                                                    width="500"
-                                                                                                    height="375"
-                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-500x375.jpg"
-                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                                                                                    alt=""
-                                                                                                    decoding="async"
-                                                                                                    loading="lazy"
-                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img.jpg 800w"
-                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>
-                                                                                        </div>
-                                                                                        <div class="astra-shop-summary-wrap">
-                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/self-improvement/"
-                                                                                               class="ast-loop-product__link">
-                                                                                                <h2 class="woocommerce-loop-product__title">
-                                                                                                    Self-Improvement</h2>
-                                                                                            </a>
-                                                                                            <span class="price"><span
-                                                                                                    class="woocommerce-Price-amount amount"><bdi><span
-                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>90.00</bdi></span></span>
-                                                                                            <div class="ast-woo-shop-product-description">
-                                                                                                <p>Autem quibusdam et
-                                                                                                    aut officiis debitis
-                                                                                                    aut rerum
-                                                                                                    necessi.</p>
-                                                                                                <p><strong>Duration : 45
-                                                                                                    MIN</strong></p>
-                                                                                            </div>
+                                                                                        {% endfor %}
+{#                                                                                    </li>#}
+{#                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-398 status-publish instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">#}
+{#                                                                                        <div class="astra-shop-thumbnail-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/couples-guidance/"#}
+{#                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img#}
+{#                                                                                                    width="500"#}
+{#                                                                                                    height="375"#}
+{#                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-500x375.jpg"#}
+{#                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"#}
+{#                                                                                                    alt=""#}
+{#                                                                                                    decoding="async"#}
+{#                                                                                                    loading="lazy"#}
+{#                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product3-free-img.jpg 800w"#}
+{#                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>#}
+{#                                                                                        </div>#}
+{#                                                                                        <div class="astra-shop-summary-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/couples-guidance/"#}
+{#                                                                                               class="ast-loop-product__link">#}
+{#                                                                                                <h2 class="woocommerce-loop-product__title">#}
+{#                                                                                                    Couple&#8217;s#}
+{#                                                                                                    Guidance</h2></a>#}
+{#                                                                                            <span class="price"><span#}
+{#                                                                                                    class="woocommerce-Price-amount amount"><bdi><span#}
+{#                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>60.00</bdi></span></span>#}
+{#                                                                                            <div class="ast-woo-shop-product-description">#}
+{#                                                                                                <p>Officiis debitis aut#}
+{#                                                                                                    rerum necessi#}
+{#                                                                                                    tatibus saepe.</p>#}
+{#                                                                                                <p><strong>Duration : 35#}
+{#                                                                                                    MIN</strong></p>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                    </li>#}
+{#                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-583 status-publish instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">#}
+{#                                                                                        <div class="astra-shop-thumbnail-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/discovery-session/"#}
+{#                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img#}
+{#                                                                                                    width="500"#}
+{#                                                                                                    height="375"#}
+{#                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-500x375.jpg"#}
+{#                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"#}
+{#                                                                                                    alt=""#}
+{#                                                                                                    decoding="async"#}
+{#                                                                                                    loading="lazy"#}
+{#                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product1-free-img.jpg 800w"#}
+{#                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>#}
+{#                                                                                        </div>#}
+{#                                                                                        <div class="astra-shop-summary-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/discovery-session/"#}
+{#                                                                                               class="ast-loop-product__link">#}
+{#                                                                                                <h2 class="woocommerce-loop-product__title">#}
+{#                                                                                                    Discovery#}
+{#                                                                                                    Session</h2></a>#}
+{#                                                                                            <span class="price"><span#}
+{#                                                                                                    class="woocommerce-Price-amount amount"><bdi><span#}
+{#                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>80.00</bdi></span></span>#}
+{#                                                                                            <div class="ast-woo-shop-product-description">#}
+{#                                                                                                <p>Lorem ipsum dolor sit#}
+{#                                                                                                    amet, elit necessi#}
+{#                                                                                                    tatibus saepe.</p>#}
+{#                                                                                                <p><strong>Duration : 60#}
+{#                                                                                                    MIN</strong></p>#}
+{#                                                                                            </div>#}
+{#                                                                                        </div>#}
+{#                                                                                    </li>#}
+{#                                                                                    <li class="ast-article-single desktop-align-left tablet-align-left mobile-align-left product type-product post-397 status-publish last instock product_cat-coaching has-post-thumbnail shipping-taxable purchasable product-type-simple">#}
+{#                                                                                        <div class="astra-shop-thumbnail-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/self-improvement/"#}
+{#                                                                                               class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img#}
+{#                                                                                                    width="500"#}
+{#                                                                                                    height="375"#}
+{#                                                                                                    src="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-500x375.jpg"#}
+{#                                                                                                    class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"#}
+{#                                                                                                    alt=""#}
+{#                                                                                                    decoding="async"#}
+{#                                                                                                    loading="lazy"#}
+{#                                                                                                    srcset="https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-500x375.jpg 500w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-300x225.jpg 300w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-768x576.jpg 768w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img-600x450.jpg 600w, https://websitedemos.net/life-coach-sara-john/wp-content/uploads/sites/441/2019/03/product2-free-img.jpg 800w"#}
+{#                                                                                                    sizes="(max-width: 500px) 100vw, 500px"/></a>#}
+{#                                                                                        </div>#}
+{#                                                                                        <div class="astra-shop-summary-wrap">#}
+{#                                                                                            <a href="https://websitedemos.net/life-coach-sara-john/product/self-improvement/"#}
+{#                                                                                               class="ast-loop-product__link">#}
+{#                                                                                                <h2 class="woocommerce-loop-product__title">#}
+{#                                                                                                    Self-Improvement</h2>#}
+{#                                                                                            </a>#}
+{#                                                                                            <span class="price"><span#}
+{#                                                                                                    class="woocommerce-Price-amount amount"><bdi><span#}
+{#                                                                                                    class="woocommerce-Price-currencySymbol">&pound;</span>90.00</bdi></span></span>#}
+{#                                                                                            <div class="ast-woo-shop-product-description">#}
+{#                                                                                                <p>Autem quibusdam et#}
+{#                                                                                                    aut officiis debitis#}
+{#                                                                                                    aut rerum#}
+{#                                                                                                    necessi.</p>#}
+{#                                                                                                <p><strong>Duration : 45#}
+{#                                                                                                    MIN</strong></p>#}
+{#                                                                                            </div>#}
                                                                                         </div>
                                                                                     </li>
                                                                                 </ul>
