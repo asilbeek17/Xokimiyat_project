@@ -20,18 +20,36 @@ class Region(models.Model):
 
 
 class Sanoat_loyiha(models.Model):
+
+    class State(models.TextChoices):
+        Tugallangan = 'Tugallangan'
+        Tugallanmagan = 'Tugallanmagan'
+
+    image = models.ImageField('upload_to/sanoat_loyiha/')
     title = models.CharField(max_length=155)
     description = models.TextField()
-    state = models.BooleanField(default=False)
+    state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
 
 
 class Qishloq_xojaligi_loyiha(models.Model):
+
+    class State(models.TextChoices):
+        Tugallangan = 'Tugallangan'
+        Tugallanmagan = 'Tugallanmagan'
+
+    image = models.ImageField('upload_to/qishloq_xojaligi_loyiha/')
     title = models.CharField(max_length=155)
     description = models.TextField()
-    state = models.BooleanField(default=False)
+    state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
 
 
 class Xizmat_korsatish_loyiha(models.Model):
+
+    class State(models.TextChoices):
+        Tugallangan = 'Tugallangan'
+        Tugallanmagan = 'Tugallanmagan'
+
+    image = models.ImageField('upload_to/xizmat_korsatish_loyiha/')
     title = models.CharField(max_length=155)
     description = models.TextField()
-    state = models.BooleanField(default=False)
+    state = models.CharField(max_length=155, choices=State.choices, default=State.Tugallanmagan)
