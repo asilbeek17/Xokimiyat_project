@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from app.models import Shaharlar, Tumanlar, Loyihalar
 
@@ -35,6 +35,6 @@ class LoyihaView(ListView):
     }
 
 
-def single(request):
-    return render(request, 'single.html')
-
+class SinglePage(DetailView):
+    model = Loyihalar
+    template_name = 'single.html'
