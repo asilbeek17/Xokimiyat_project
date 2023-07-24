@@ -20,3 +20,7 @@ def contact(request):
 def work_with_me(request):
     return render(request, 'work_with_me.html')
 
+
+def single(request):
+    return render(request, 'single.html')
+
