@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+     #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      box-shadow: 3px 3px 9px #088178;
+      position: sticky;
+      background-color: white;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #1a1a1a;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+    }
+
+    #navbar li a.active::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+    .images {
+            width: 100%;
+        height: 50px;
+    }
+
+    .bodydiv {
+      margin-top: 2%;
+    }
+
+    .card {
+      margin: 25px;
+      border: 1px solid green;
+    }
+    .card-body p{
+     height: 35vh;
+      overflow-y: auto;
+    }
+    .bodydiv .maindiv {
+      display: flex;
+      justify-content: center;
+    }
+
+    .heading2 {
+      margin-top: 2%;
+      text-align: center;
+    }
+    @media (max-width:799px) {
+      #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+      }
+
+      #navbar li {
+        margin-bottom: 25px;
+      }
+
+      #navbar.active {
+        right: 0px;
+      }
+
+      #mobile {
+        display: flex;
+        align-items: center;
+      }
+
+      #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+      }
+
+      #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section id="header">
+    <a href="{% url 'index' %}"><img src="{% static 'img/gerb.jpeg' %}" class="images" alt=""></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="{% url 'index' %}">Asosiy</a></li>
+        <li><a href="{% url 'tuman' %}">Tumanlar</a></li>
+        <li><a href="{% url 'threepage' %}">Loyihalar</a></li>
+        <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+        <a href="#" id="close"><i class="bi bi-x-circle"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+      <i id="bar" class="bi bi-box-arrow-left"></i>
+    </div>
+  </section>
+  {% block content %}
+  <h1 class="heading2">Tugallangan 	Qishloq Xo'jaligi Loyihalari</h1>
+  <div class="bodydiv">
+    <div class="maindiv">
+
+        {% for loyihalar in loyihalar_list %}
+            {% if loyihalar.state.title == 'Tugallangan' %}
+                {% if loyihalar.loyiha_turi.title == "Qishloq xo'jaligi loyihalari" %}
+                  <div class="card" style="width: 16rem;">
+                    <img src="{{ loyihalar.image1.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ loyihalar.title }}</h5>
+                      <p class="card-text">{{ loyihalar.description  }}</p>
+                      <a href="{% url 'loyiha_single' loyihalar.pk %}" class="btn btn-outline-success">More info</a>
+                    </div>
+                  </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+  {% endblock content %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>

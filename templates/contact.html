@@ -1,0 +1,507 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+     #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      box-shadow: 3px 3px 9px #088178;
+      position: sticky;
+      background-color: white;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #1a1a1a;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+    }
+
+    #navbar li a.active::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+    .images {
+      width: 100%;
+        height: 50px;
+    }
+
+    /* ------- */
+    body {
+      background: #eee;
+    }
+
+    .gradient-brand-color {
+      background-color: #088178;
+      color: #fff;
+    }
+
+    .contact-info__wrapper {
+      overflow: hidden;
+      border-radius: .625rem .625rem 0 0
+    }
+
+    @media (min-width: 1024px) {
+      .contact-info__wrapper {
+        border-radius: 0 .625rem .625rem 0;
+        padding: 5rem !important
+      }
+    }
+
+    .contact-info__list span.position-absolute {
+      left: 0
+    }
+
+    .z-index-101 {
+      z-index: 101;
+    }
+
+    .list-style--none {
+      list-style: none;
+    }
+
+    .contact__wrapper {
+      background-color: #fff;
+      border-radius: 0 0 .625rem .625rem
+    }
+
+    @media (min-width: 1024px) {
+      .contact__wrapper {
+        border-radius: .625rem 0 .625rem .625rem
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .contact-form__wrapper {
+        padding: 5rem !important
+      }
+    }
+
+    .shadow-lg,
+    .shadow-lg--on-hover:hover {
+      box-shadow: 0 1rem 3rem rgba(132, 138, 163, 0.1) !important;
+    }
+
+    .button:hover {
+      background-color: #088178;
+      color: white;
+    }
+
+    .button {
+      border-color: #088178;
+    }
+
+    /* footer */
+    .site-footer {
+      background-color: #26272b;
+      padding: 45px 0 20px;
+      font-size: 15px;
+      line-height: 24px;
+      color: #737373;
+      margin-top: 5%;
+    }
+
+    .site-footer hr {
+      border-top-color: #bbb;
+      opacity: 0.5
+    }
+
+    .site-footer hr.small {
+      margin: 20px 0
+    }
+
+    .site-footer h6 {
+      color: #fff;
+      font-size: 16px;
+      text-transform: uppercase;
+      margin-top: 5px;
+      letter-spacing: 2px
+    }
+
+    .site-footer a {
+      color: #737373;
+    }
+
+    .site-footer a:hover {
+      color: #3366cc;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      padding-left: 0;
+      list-style: none
+    }
+
+    .footer-links li {
+      display: block
+    }
+
+    .footer-links a {
+      color: #737373
+    }
+
+    .footer-links a:active,
+    .footer-links a:focus,
+    .footer-links a:hover {
+      color: #3366cc;
+      text-decoration: none;
+    }
+
+    .footer-links.inline li {
+      display: inline-block
+    }
+
+    .site-footer .social-icons {
+      text-align: right
+    }
+
+    .site-footer .social-icons a {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      margin-left: 6px;
+      margin-right: 0;
+      border-radius: 100%;
+      background-color: #33353d
+    }
+
+    .copyright-text {
+      margin: 0
+    }
+
+    @media (max-width:991px) {
+      .site-footer [class^=col-] {
+        margin-bottom: 30px
+      }
+    }
+
+    @media (max-width:767px) {
+      .site-footer {
+        padding-bottom: 0
+      }
+
+      .site-footer .copyright-text,
+      .site-footer .social-icons {
+        text-align: center
+      }
+    }
+
+    .social-icons {
+      padding-left: 0;
+      margin-bottom: 0;
+      list-style: none
+    }
+
+    .social-icons li {
+      display: inline-block;
+      margin-bottom: 4px
+    }
+
+    .social-icons li.title {
+      margin-right: 15px;
+      text-transform: uppercase;
+      color: #96a2b2;
+      font-weight: 700;
+      font-size: 13px
+    }
+
+    .social-icons a {
+      background-color: #eceeef;
+      color: #818a91;
+      font-size: 16px;
+      display: inline-block;
+      line-height: 44px;
+      width: 44px;
+      height: 44px;
+      text-align: center;
+      margin-right: 8px;
+      border-radius: 100%;
+      -webkit-transition: all .2s linear;
+      -o-transition: all .2s linear;
+      transition: all .2s linear
+    }
+
+    .social-icons a:active,
+    .social-icons a:focus,
+    .social-icons a:hover {
+      color: #fff;
+      background-color: #29aafe
+    }
+
+    .social-icons.size-sm a {
+      line-height: 34px;
+      height: 34px;
+      width: 34px;
+      font-size: 14px
+    }
+
+    .social-icons a.facebook:hover {
+      background-color: #3b5998
+    }
+
+    .social-icons a.twitter:hover {
+      background-color: #00aced
+    }
+
+    .social-icons a.linkedin:hover {
+      background-color: #007bb6
+    }
+
+    .social-icons a.dribbble:hover {
+      background-color: #ea4c89
+    }
+
+    @media (max-width:767px) {
+      .social-icons li.title {
+        display: block;
+        margin-right: 0;
+        font-weight: 600
+      }
+    }
+
+    @media (max-width:799px) {
+      #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -350px;
+        height: 100vh;
+        width: 300px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+      }
+
+      #navbar li {
+        margin-bottom: 25px;
+      }
+
+      #navbar.active {
+        right: 0px;
+      }
+
+      #mobile {
+        display: flex;
+        align-items: center;
+      }
+
+      #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+      }
+
+      #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px;
+      }
+    }
+    .container{
+      margin-top: 5%;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="header">
+    <a href="{% url 'index' %}"><img src="{% static 'img/gerb.jpeg' %}" class="images" alt=""></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="{% url 'index' %}">Asosiy</a></li>
+        <li><a href="{% url 'tuman' %}">Tumanlar</a></li>
+        <li><a href="{% url 'threepage' %}">Loyihalar</a></li>
+        <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+        <a href="#" id="close"><i class="bi bi-x-circle"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+      <i id="bar" class="bi bi-box-arrow-left"></i>
+    </div>
+  </section>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+  <div class="container">
+    <div class="contact__wrapper shadow-lg mt-n9">
+      <div class="row no-gutters">
+        <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2">
+          <h3 class="color--white mb-5">Get in Touch</h3>
+
+          <ul class="contact-info__list list-style--none position-relative z-index-101">
+            <li class="mb-4 pl-4">
+              <span class="position-absolute"><i class="fas fa-envelope"></i></span> it_city_academy@gmail.com
+            </li>
+            <li class="mb-4 pl-4">
+              <span class="position-absolute"><i class="fas fa-phone"></i></span> +998 (99) 339 33  00
+            </li>
+            <li class="mb-4 pl-4">
+              <span class="position-absolute"><i class="fas fa-map-marker-alt"></i></span> IT CITY ACADEMY
+              <br> Nearby Davlat Xizmatlari
+
+{#              <div class="mt-3">#}
+{#                <a href="https://www.google.com/maps" target="_blank" class="text-link link--right-icon text-white">Get#}
+{#                  directions <i class="link__icon fa fa-directions"></i></a>#}
+{#              </div>#}
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+          <form action="{% url 'contact' %}" method="post">
+              {% csrf_token %}
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label class="required-field" for="first_name">First Name</label>
+                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Ismingiz" required>
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="last_name">Last Name</label>
+                  <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Familyangiz" required>
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label class="required-field" for="email">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" placeholder="absd@gmail.com" required>
+                </div>
+              </div>
+
+              <div class="col-sm-6 mb-3">
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" name="phone_number" placeholder="+998 (xx) xxx xx xx">
+                </div>
+              </div>
+
+              <div class="col-sm-12 mb-3">
+                <div class="form-group">
+                  <label class="required-field" for="text">Shikoyatingizni yozib qoldiring.</label>
+                  <textarea class="form-control" id="text" name="text" rows="4"
+                    placeholder="Biz albatya qo'limizdan kelgancha sizga yordam beramiz."></textarea>
+                </div>
+              </div>
+
+              <div class="col-sm-12 mb-3">
+                <button type="submit" name="submit" class="btn button">Yuborish</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+        <!-- End Contact Form Wrapper -->
+
+      </div>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Qashqadaryo haqida</h6>
+          <p class="text-justify">Qashqadaryo viloyati — Oʻzbekiston Respublikasi tarkibidagi viloyat. 1924-yil 1-noyabrda tashkil etilgan. Respublikaning janubi-gʻarbida, Qashqadaryo havzasida, Pomir-Oloy togʻ tizmasining gʻarbiy chekkasida, Amudaryo va Zarafshon daryolari, Hisor va Zarafshon tizma togʻlari orasida. </p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Loyihalar</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'sanoat_2' %}">Sanoat loyihalari</a></li>
+            <li><a href="{% url 'qishloq_2' %}">Qishloq xo'jaligi loyihalari</a></li>
+            <li><a href="{% url 'xizmat_2' %}">	Xizmat ko'rsatish loyihalari</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="{% url 'index' %}">Asosiy</a></li>
+            <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+            <li><a href="{% url 'tuman' %}">Tumanla</a></li>
+            <li><a href="{% url 'threepage' %}">Loyihalar</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+{#          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by#}
+{#            <a href="#">Scanfcode</a>.#}
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>

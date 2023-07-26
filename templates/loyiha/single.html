@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/single.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <title>Single </title>
+  <style>
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      box-shadow: 3px 3px 9px #088178;
+      position: sticky;
+      background-color: white;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #1a1a1a;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+    }
+
+    #navbar li a.active::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    .images {
+      width: 100%;
+        height: 50px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <section id="header">
+    <a href="{% url 'index' %}"><img src="{% static 'img/gerb.jpeg' %}" class="images" alt=""></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="{% url 'index' %}">Asosiy</a></li>
+        <li><a href="{% url 'tuman' %}">Tumanlar</a></li>
+        <li><a href="{% url 'threepage' %}">Loyihalar</a></li>
+        <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+      </ul>
+    </div>
+
+
+  </section>
+  <div class="card mb-3 mx-5 title " style="border: none;">
+    <div class="row g-0 single_1 ">
+      <div class="col-md-8 ">
+        <div class="card-body ">
+          <h5 class="card-title">{{ loyihalar.title }}</h5>
+          <p class="card-text single_2 ">{{ loyihalar.description }}</p>
+          <p class="card-text"><small class="text-body-secondary">{{ loyihalar.time | timesince  }}</small></p>
+        </div>
+      </div>
+      <div class="col-md-4 single">
+        <img
+          src="{{ loyihalar.image1.url }}"
+          class="img-fluid float-end img3" alt="...">
+        <img
+          src="{{ loyihalar.image2.url }}"
+          alt="" class="img4">
+        <img src="{{ loyihalar.image3.url }}" alt="n" class="img4">
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
